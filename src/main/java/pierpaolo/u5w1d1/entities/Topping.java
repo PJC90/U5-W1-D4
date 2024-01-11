@@ -1,13 +1,12 @@
 package pierpaolo.u5w1d1.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.Entity;
+import lombok.*;
 
+@Entity
 @Getter
 @Setter
-
+@NoArgsConstructor
 public class Topping extends Prodotto{
     private String nome;
 

@@ -1,13 +1,22 @@
 package pierpaolo.u5w1d1.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
+@Entity
 @Getter
+@NoArgsConstructor
 public class Pizza extends Prodotto{
+    @Id
+    @GeneratedValue
+    private long id;
     private String nome;
     private List<Topping> toppings;
     private boolean isXl = false;

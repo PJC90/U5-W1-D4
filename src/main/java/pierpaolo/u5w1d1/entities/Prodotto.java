@@ -1,10 +1,16 @@
 package pierpaolo.u5w1d1.entities;
 
+import jakarta.persistence.*;
 import lombok.*;
-
+@Entity
 @Getter
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_prodotto", discriminatorType = DiscriminatorType.STRING)
+@NoArgsConstructor
 public abstract class Prodotto {
-
+    @Id
+    @GeneratedValue
+    private long id;
     double prezzo;
     int calorie;
 

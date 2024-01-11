@@ -1,18 +1,26 @@
 package pierpaolo.u5w1d1.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.*;
 
 import java.util.List;
+@Entity
 @Getter
 @Setter
+@RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
 public class Menu {
+    @Id
+    @GeneratedValue
+    private long id;
+    @NonNull
     private List<Pizza> pizzaList;
+    @NonNull
     private List<Bevanda> bevandaList;
+    @NonNull
     private List<Topping> toppingList;
     public void printMenu(){
         System.out.println("Menu   ");

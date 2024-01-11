@@ -1,16 +1,24 @@
 package pierpaolo.u5w1d1.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
-
+@Entity
 @Getter
 @ToString
+@NoArgsConstructor
 public class Ordine {
+    @Id
+    @GeneratedValue
+    private long id;
     private int numOrdine;
     private OrdineStato stato;
     private int  numCoperti;
