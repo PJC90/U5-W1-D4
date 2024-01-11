@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pierpaolo.u5w1d1.entities.Bevanda;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class BevandaService {
@@ -14,5 +16,8 @@ public class BevandaService {
         bevandaDao.save(bevanda);
         log.info("Bevanda salvata correttamente!");
     }
-
+//    public List<Bevanda> filterBySurname(String surname) {
+//
+//        return BevandaDAO.findBySurname(surname);
+//    }
 }
