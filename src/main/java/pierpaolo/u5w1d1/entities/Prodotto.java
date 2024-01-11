@@ -2,6 +2,9 @@ package pierpaolo.u5w1d1.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
+
 @Entity
 @Getter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -13,6 +16,9 @@ public abstract class Prodotto {
     private long id;
     double prezzo;
     int calorie;
+
+    @ManyToMany(mappedBy = "prodottiOrdinati")
+    private List<Ordine> ordini;
 
     public Prodotto(double prezzo, int calorie) {
         this.prezzo = prezzo;

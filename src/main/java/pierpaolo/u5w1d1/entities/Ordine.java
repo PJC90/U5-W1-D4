@@ -1,8 +1,6 @@
 package pierpaolo.u5w1d1.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -23,7 +21,15 @@ public class Ordine {
     private OrdineStato stato;
     private int  numCoperti;
     private LocalTime ora;
+    @ManyToMany
+    @JoinTable(
+            name = "ordine_prodotto",
+            joinColumns = @JoinColumn(name = "ordine_id"),
+            inverseJoinColumns = @JoinColumn(name = "prodotto_id")
+    )
     private List<Prodotto> prodottiOrdinati;
+    @ManyToOne
+    @JoinColumn(name = "tavolo_id")
     private Tavolo tavolo;
 //    @Value("${costo.coperto}")
 //    private double costoCoperto;

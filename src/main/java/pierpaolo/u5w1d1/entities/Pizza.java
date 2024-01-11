@@ -1,8 +1,6 @@
 package pierpaolo.u5w1d1.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,8 +16,12 @@ public class Pizza extends Prodotto{
     @GeneratedValue
     private long id;
     private String nome;
+    @OneToMany(mappedBy = "pizza")
     private List<Topping> toppings;
     private boolean isXl = false;
+    @ManyToOne
+    @JoinColumn(name = "menu_id")
+    private Menu menu;
 
     public Pizza(String nome, List<Topping> toppings, boolean isXl) {
         super(4.99,1032);

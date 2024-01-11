@@ -3,7 +3,10 @@ package pierpaolo.u5w1d1.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -23,4 +26,7 @@ public class Tavolo {
     private TavoloStato stato;
     @NonNull
     private double costoCoperto;
+
+    @OneToMany(mappedBy = "tavolo")
+    private List<Ordine> ordini;
 }

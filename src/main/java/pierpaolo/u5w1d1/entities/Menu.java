@@ -3,25 +3,31 @@ package pierpaolo.u5w1d1.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.util.List;
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
-@AllArgsConstructor
 @NoArgsConstructor
 public class Menu {
     @Id
     @GeneratedValue
     private long id;
-    @NonNull
+    @OneToMany(mappedBy = "menu")
     private List<Pizza> pizzaList;
-    @NonNull
+    @OneToMany(mappedBy = "menu")
     private List<Bevanda> bevandaList;
-    @NonNull
+    @OneToMany(mappedBy = "menu")
     private List<Topping> toppingList;
+
+    public Menu(List<Pizza> pizzaList, List<Bevanda> bevandaList, List<Topping> toppingList) {
+        this.pizzaList = pizzaList;
+        this.bevandaList = bevandaList;
+        this.toppingList = toppingList;
+    }
+
     public void printMenu(){
         System.out.println("Menu   ");
         if(this.pizzaList.size() == 1) {
